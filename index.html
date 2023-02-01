@@ -35,9 +35,9 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/PropertyPricesMillions_0.js"></script>
-        <script src="data/PropertyFeatures_1.js"></script>
-        <script src="data/PropertyPlans_2.js"></script>
+        <script src="data/PropertyPricesMillions_3.js"></script>
+        <script src="data/PropertyFeatures_4.js"></script>
+        <script src="data/PropertyPlans_5.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -80,7 +80,46 @@
                 map.fitBounds(bounds_group.getBounds());
             }
         }
-        function pop_PropertyPricesMillions_0(feature, layer) {
+        map.createPane('pane_GoogleRoad_0');
+        map.getPane('pane_GoogleRoad_0').style.zIndex = 400;
+        var layer_GoogleRoad_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleRoad_0',
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_GoogleRoad_0;
+        map.addLayer(layer_GoogleRoad_0);
+        map.createPane('pane_GoogleHybrid_1');
+        map.getPane('pane_GoogleHybrid_1').style.zIndex = 401;
+        var layer_GoogleHybrid_1 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleHybrid_1',
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_GoogleHybrid_1;
+        map.addLayer(layer_GoogleHybrid_1);
+        map.createPane('pane_GoogleSatellite_2');
+        map.getPane('pane_GoogleSatellite_2').style.zIndex = 402;
+        var layer_GoogleSatellite_2 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatellite_2',
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_GoogleSatellite_2;
+        map.addLayer(layer_GoogleSatellite_2);
+        function pop_PropertyPricesMillions_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -107,11 +146,11 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_PropertyPricesMillions_0_0(feature) {
+        function style_PropertyPricesMillions_3_0(feature) {
             switch(String(feature.properties['Price (Mil'])) {
                 case '50':
                     return {
-                pane: 'pane_PropertyPricesMillions_0',
+                pane: 'pane_PropertyPricesMillions_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,0.549)',
@@ -127,7 +166,7 @@
                     break;
                 case '60':
                     return {
-                pane: 'pane_PropertyPricesMillions_0',
+                pane: 'pane_PropertyPricesMillions_3',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,0.549)',
@@ -143,7 +182,7 @@
                     break;
                 case '150':
                     return {
-                pane: 'pane_PropertyPricesMillions_0',
+                pane: 'pane_PropertyPricesMillions_3',
                 radius: 12.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,0.549)',
@@ -159,7 +198,7 @@
                     break;
                 case '200':
                     return {
-                pane: 'pane_PropertyPricesMillions_0',
+                pane: 'pane_PropertyPricesMillions_3',
                 radius: 16.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,0.549)',
@@ -175,26 +214,26 @@
                     break;
             }
         }
-        map.createPane('pane_PropertyPricesMillions_0');
-        map.getPane('pane_PropertyPricesMillions_0').style.zIndex = 400;
-        map.getPane('pane_PropertyPricesMillions_0').style['mix-blend-mode'] = 'normal';
-        var layer_PropertyPricesMillions_0 = new L.geoJson(json_PropertyPricesMillions_0, {
+        map.createPane('pane_PropertyPricesMillions_3');
+        map.getPane('pane_PropertyPricesMillions_3').style.zIndex = 403;
+        map.getPane('pane_PropertyPricesMillions_3').style['mix-blend-mode'] = 'normal';
+        var layer_PropertyPricesMillions_3 = new L.geoJson(json_PropertyPricesMillions_3, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_PropertyPricesMillions_0',
-            layerName: 'layer_PropertyPricesMillions_0',
-            pane: 'pane_PropertyPricesMillions_0',
-            onEachFeature: pop_PropertyPricesMillions_0,
+            dataVar: 'json_PropertyPricesMillions_3',
+            layerName: 'layer_PropertyPricesMillions_3',
+            pane: 'pane_PropertyPricesMillions_3',
+            onEachFeature: pop_PropertyPricesMillions_3,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_PropertyPricesMillions_0_0(feature));
+                return L.circleMarker(latlng, style_PropertyPricesMillions_3_0(feature));
             },
         });
-        bounds_group.addLayer(layer_PropertyPricesMillions_0);
-        function pop_PropertyFeatures_1(feature, layer) {
+        bounds_group.addLayer(layer_PropertyPricesMillions_3);
+        function pop_PropertyFeatures_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -247,11 +286,11 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_PropertyFeatures_1_0(feature) {
+        function style_PropertyFeatures_4_0(feature) {
             switch(String(feature.properties['Type'])) {
                 case 'Apartment':
                     return {
-                pane: 'pane_PropertyFeatures_1',
+                pane: 'pane_PropertyFeatures_4',
                 opacity: 1,
                 color: 'rgba(166,206,227,1.0)',
                 dashArray: '',
@@ -264,7 +303,7 @@
                     break;
                 case 'Terrace':
                     return {
-                pane: 'pane_PropertyFeatures_1',
+                pane: 'pane_PropertyFeatures_4',
                 opacity: 1,
                 color: 'rgba(26,21,29,1.0)',
                 dashArray: '',
@@ -277,21 +316,21 @@
                     break;
             }
         }
-        map.createPane('pane_PropertyFeatures_1');
-        map.getPane('pane_PropertyFeatures_1').style.zIndex = 401;
-        map.getPane('pane_PropertyFeatures_1').style['mix-blend-mode'] = 'normal';
-        var layer_PropertyFeatures_1 = new L.geoJson(json_PropertyFeatures_1, {
+        map.createPane('pane_PropertyFeatures_4');
+        map.getPane('pane_PropertyFeatures_4').style.zIndex = 404;
+        map.getPane('pane_PropertyFeatures_4').style['mix-blend-mode'] = 'normal';
+        var layer_PropertyFeatures_4 = new L.geoJson(json_PropertyFeatures_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_PropertyFeatures_1',
-            layerName: 'layer_PropertyFeatures_1',
-            pane: 'pane_PropertyFeatures_1',
-            onEachFeature: pop_PropertyFeatures_1,
-            style: style_PropertyFeatures_1_0,
+            dataVar: 'json_PropertyFeatures_4',
+            layerName: 'layer_PropertyFeatures_4',
+            pane: 'pane_PropertyFeatures_4',
+            onEachFeature: pop_PropertyFeatures_4,
+            style: style_PropertyFeatures_4_0,
         });
-        bounds_group.addLayer(layer_PropertyFeatures_1);
-        map.addLayer(layer_PropertyFeatures_1);
-        function pop_PropertyPlans_2(feature, layer) {
+        bounds_group.addLayer(layer_PropertyFeatures_4);
+        map.addLayer(layer_PropertyFeatures_4);
+        function pop_PropertyPlans_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -318,9 +357,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_PropertyPlans_2_0() {
+        function style_PropertyPlans_5_0() {
             return {
-                pane: 'pane_PropertyPlans_2',
+                pane: 'pane_PropertyPlans_5',
                 radius: 2.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -334,9 +373,9 @@
                 interactive: true,
             }
         }
-        function style_PropertyPlans_2_1() {
+        function style_PropertyPlans_5_1() {
             return {
-                pane: 'pane_PropertyPlans_2',
+                pane: 'pane_PropertyPlans_5',
                 radius: 0.4375,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -350,32 +389,32 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_PropertyPlans_2');
-        map.getPane('pane_PropertyPlans_2').style.zIndex = 402;
-        map.getPane('pane_PropertyPlans_2').style['mix-blend-mode'] = 'normal';
-        var layer_PropertyPlans_2 = new L.geoJson.multiStyle(json_PropertyPlans_2, {
+        map.createPane('pane_PropertyPlans_5');
+        map.getPane('pane_PropertyPlans_5').style.zIndex = 405;
+        map.getPane('pane_PropertyPlans_5').style['mix-blend-mode'] = 'normal';
+        var layer_PropertyPlans_5 = new L.geoJson.multiStyle(json_PropertyPlans_5, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_PropertyPlans_2',
-            layerName: 'layer_PropertyPlans_2',
-            pane: 'pane_PropertyPlans_2',
-            onEachFeature: pop_PropertyPlans_2,
+            dataVar: 'json_PropertyPlans_5',
+            layerName: 'layer_PropertyPlans_5',
+            pane: 'pane_PropertyPlans_5',
+            onEachFeature: pop_PropertyPlans_5,
             pointToLayers: [function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_PropertyPlans_2_0(feature));
+                return L.circleMarker(latlng, style_PropertyPlans_5_0(feature));
             },function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_PropertyPlans_2_1(feature));
+                return L.circleMarker(latlng, style_PropertyPlans_5_1(feature));
             },
         ]});
-        bounds_group.addLayer(layer_PropertyPlans_2);
-        map.addLayer(layer_PropertyPlans_2);
+        bounds_group.addLayer(layer_PropertyPlans_5);
+        map.addLayer(layer_PropertyPlans_5);
             var title = new L.Control();
             title.onAdd = function (map) {
                 this._div = L.DomUtil.create('div', 'info');
@@ -412,7 +451,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/PropertyPlans_2.png" /> Property Plans': layer_PropertyPlans_2,'Property Features<br /><table><tr><td style="text-align: center;"><img src="legend/PropertyFeatures_1_Apartment0.png" /></td><td>Apartment</td></tr><tr><td style="text-align: center;"><img src="legend/PropertyFeatures_1_Terrace1.png" /></td><td>Terrace</td></tr></table>': layer_PropertyFeatures_1,'Property Prices (Millions)<br /><table><tr><td style="text-align: center;"><img src="legend/PropertyPricesMillions_0_50Million0.png" /></td><td>50 Million</td></tr><tr><td style="text-align: center;"><img src="legend/PropertyPricesMillions_0_60Million1.png" /></td><td>60 Million</td></tr><tr><td style="text-align: center;"><img src="legend/PropertyPricesMillions_0_150Million2.png" /></td><td>150 Million</td></tr><tr><td style="text-align: center;"><img src="legend/PropertyPricesMillions_0_200Million3.png" /></td><td>200 Million</td></tr></table>': layer_PropertyPricesMillions_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/PropertyPlans_5.png" /> Property Plans': layer_PropertyPlans_5,'Property Features<br /><table><tr><td style="text-align: center;"><img src="legend/PropertyFeatures_4_Apartment0.png" /></td><td>Apartment</td></tr><tr><td style="text-align: center;"><img src="legend/PropertyFeatures_4_Terrace1.png" /></td><td>Terrace</td></tr></table>': layer_PropertyFeatures_4,'Property Prices (Millions)<br /><table><tr><td style="text-align: center;"><img src="legend/PropertyPricesMillions_3_50Million0.png" /></td><td>50 Million</td></tr><tr><td style="text-align: center;"><img src="legend/PropertyPricesMillions_3_60Million1.png" /></td><td>60 Million</td></tr><tr><td style="text-align: center;"><img src="legend/PropertyPricesMillions_3_150Million2.png" /></td><td>150 Million</td></tr><tr><td style="text-align: center;"><img src="legend/PropertyPricesMillions_3_200Million3.png" /></td><td>200 Million</td></tr></table>': layer_PropertyPricesMillions_3,"Google Satellite": layer_GoogleSatellite_2,"Google Hybrid": layer_GoogleHybrid_1,"Google Road": layer_GoogleRoad_0,}).addTo(map);
         setBounds();
         </script>
     </body>
